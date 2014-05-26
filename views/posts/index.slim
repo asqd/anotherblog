@@ -1,0 +1,10 @@
+-@Posts.each do |post| 
+    .row-fluid
+      .post_header: a href="/show/#{post.alias}" =post.title 
+      .post_time =post.created_at.strftime("%d.%m.%Y %H:%M")
+    .post_body 
+      ==truncate_words(post.body,10) 
+      a href="/show/#{post.alias}" Читать дальше
+    .postdiv 
+/.span12.flickr_pagination ==will_paginate @posts
+    

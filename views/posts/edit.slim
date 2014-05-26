@@ -1,0 +1,11 @@
+h3 Редактирование поста
+br
+form method="post" action="/admin/edit/#{@Post.id}"
+  
+  label for="name" Тема поста
+  input#title type="text" name="title" value=@Post.title
+
+  label for="body" Пост
+  textarea#body.span12 name="body" rows="8" =@Post.body
+  br
+  input type="submit" name="submit" value="изменить"

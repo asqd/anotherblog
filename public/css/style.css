@@ -1,0 +1,52 @@
+
+
+.content {
+	margin-top: 45px;
+}
+
+.post_header {
+	min-height: 20px;
+	
+}
+
+.post_time {
+	font-size: 14px;
+	border-bottom: 1px #EEE solid;
+	
+}
+.post_header:hover {
+	background: #eff6fa;
+}
+
+.post_body:hover {
+	background: #e6e6e6;
+}
+
+.post_header:hover {
+	background: #eff6fa;
+}
+
+.post_body:hover {
+	background: #e6e6e6;
+}
+
+.post_header, .post_body, .post_time, .post_header,.post_body{
+	padding: 5px;
+}
+
+.post_header {
+	border-top: 1px #EEE solid;
+	border-bottom: 1px #EEE solid;
+}
+
+.postdiv {
+	clear: both;
+	border-bottom: 1px #DDD solid;
+	margin: 10px 0;
+}
+
+
+.container-fluid {
+	max-width: 1200px;
+	margin: 0px auto;
+}

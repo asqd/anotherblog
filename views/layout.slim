@@ -1,0 +1,44 @@
+doctype html
+html
+  head
+  meta charset="utf-8"
+  title =@PageTitle
+  script src="http://cdn.rightjs.org/right.js"
+  script src="http://code.jquery.com/jquery-latest.js"
+  script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+  script src="/js/redactor/redactor.js"
+  script src="/js/bootstrap.js"
+  script src="/js/right-rte.js"
+  link rel="stylesheet" media="screen, projection" href="/css/bootstrap.css"
+  link rel="stylesheet" media="screen, projection" href="/css/style.css"
+  link rel="stylesheet" href="/js/redactor/css/redactor.css"
+  link rel="stylesheet" href="/css/pagination.css"
+  
+
+  body
+    
+    header.navbar.navbar-fixed-top.navbar-inverse
+      .navbar-inner
+        
+          .container
+            a.brand href="/" anotherblog
+            nav              
+              ul.nav.pull-right
+                li: a href="/" Главная              
+                -unless authorized? then
+                  li: a href="/admin/all" Войти под админом              
+                -else
+                  li: a href="/admin/all" Все посты
+                  li: a href="/admin/create" Написать пост
+                end
+
+                            
+    .container.content 
+
+      == yield
+
+
+script
+    |  $(document).ready(function() {
+    |  $('.redactor_body').redactor({toolbar: 'default', imageUpload: '/upload/image', imageGetJson: '/uploads/images/imageslist.json'});
+    |  });

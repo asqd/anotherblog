@@ -1,0 +1,31 @@
+- unless @Posts.empty?
+  table class="table table-striped"
+    tr
+      th Имя поста   
+      th Псевдоним   
+      th Создан
+      th Изменен
+      th &nbsp;
+      th &nbsp;
+    - @Posts.each do |post|
+    
+      
+      tr
+        td = post.title
+        td = post.alias
+        td = post.created_at.strftime("%d.%m.%Y %H:%M")
+        td = post.updated_at.strftime("%d.%m.%Y %H:%M")
+        td: a href="/admin/edit/#{post.id}": i.icon-pencil
+        div id="Del#{post.id}" class="modal hide fade" data-target="#Del#{post.id}" style="display: none;"
+          .modal-header
+          .modal-body
+            h2 Вы хотите удалить запись?
+          .modal-footer
+            a.btn href="/admin/delete/#{post.id}" Удалить
+            a.btn href="#" data-dismiss="modal"  aria-hidden="true" Не удалять  
+        td: a data-backdrop="true" href="#Del#{post.id}" role="button" data-toggle="modal": i.icon-remove  
+        
+- else
+    h3 Нет ни одного поста, написать первый пост?
+    a href="/admin/create" class="btn" Создать
+
