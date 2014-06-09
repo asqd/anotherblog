@@ -30,15 +30,15 @@ html
                 -else
                   li: a href="/admin/all" Все посты
                   li: a href="/admin/create" Написать пост
-                end
+                
 
                             
     .container.content 
 
       == yield
 
-
-script
-    |  $(document).ready(function() {
-    |  $('.redactor_body').redactor({toolbar: 'default', imageUpload: '/upload/image', imageGetJson: '/uploads/images/imageslist.json'});
-    |  });
+-if authorized? then
+  script
+      |  $(document).ready(function() {
+      |  $('.redactor_body').redactor({toolbar: 'mini'});
+      |  });

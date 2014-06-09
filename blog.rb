@@ -24,7 +24,7 @@ class Post
 	end
 end
 
-#DataMapper.auto_upgrade!
+DataMapper.auto_upgrade!
 DataMapper.finalize.auto_migrate!
 #Function for truncate long posts
 def truncate_words(text, length, end_string = ' ... ')
@@ -95,8 +95,13 @@ end
 post '/admin/create' do
 	params.delete 'submit'
 	params[:updated_at] = params[:created_at] = Time.now
-	@Post = Post.create(params)		
-	redirect '/admin/all'	
+	@Post = Post.new(params)
+	if @Post.save		
+	redirect '/admin/all'
+	else
+	puts @Post
+	redirect 'admin/create'
+	end	
 end
 
 get '/admin/edit/:id' do
