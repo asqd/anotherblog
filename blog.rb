@@ -24,8 +24,8 @@ class Post
 	end
 end
 
-#DataMapper.auto_upgrade!
-DataMapper.finalize.auto_migrate!
+#DataMapper.auto_migrate!
+DataMapper.finalize
 #Function for truncate long posts
 def truncate_words(text, length, end_string = ' ... ')
   unless text.nil?
